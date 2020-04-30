@@ -1,0 +1,105 @@
+.kanban-board {
+  width: 90%;
+  height: 800px;
+  margin: auto;
+  overflow: scroll;
+}
+
+.kanban-header {
+  display: flex;
+  margin: 16px;
+}
+
+.kanban-header-title {
+  display: inline-block;
+  /* width: 285px; */
+  width: 22%;
+  margin: auto;
+  height: 63px;
+  background-color: #06aed5;
+  color: #f1faee;
+  font-size: 36px;
+  font-family: "Segoe UI";
+  font-style: italic;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.workset {
+  /* border: 2px solid red; */
+  display: flex;
+  margin: 10px;
+  min-height: 25%;
+}
+
+.workset-storylist {
+  width: 22%;
+  float: left;
+  background-color: #a8dadc;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.storylist-story {
+  /* color: red; */
+  display: block;
+  background-color: #f1faee;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  margin: 24px;
+  border-radius: 5px;
+  height: 48px;
+}
+
+.story-task {
+  width: 20%;
+  height: 20%;
+  min-height: 80px;
+  margin: 5px;
+  background-color: #06aed5;
+  font-family: "Segoe UI";
+  font-size: 13px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1%;
+}
+
+.story-task span {
+  display: block;
+}
+
+.workset-started {
+  width: 22%;
+  min-height: 260px;
+  float: left;
+  background-color: #a8dadc;
+  border-radius: 5px;
+
+  margin: auto;
+  display: flex;
+  /* overflow: scroll; */
+  flex-wrap: wrap;
+}
+
+/* .workset-started div {
+  color: green;
+} */
+
+.workset-completed {
+  width: 22%;
+  min-height: 260px;
+  float: left;
+  background-color: #a8dadc;
+  border-radius: 5px;
+
+  margin: auto;
+  display: flex;
+  /* overflow: scroll; */
+  flex-wrap: wrap;
+}
