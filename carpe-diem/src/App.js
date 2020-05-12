@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/header/Header';
 import KanbanBoard from './components/kanban_board/KanbanBoard';
-// import { boardState, updateState } from './components/kanban_board/State'
-import { loadState, boardInitialState } from './components/kanban_board/State'
-import { getUsers, getStories, getStoriesInCurrentIteration } from './api/pivotalService';
+import Setup from './components/project_setup/Setup';
+// import { getUsers, getStories, getStoriesInCurrentIteration } from './api/pivotalService';
 
 
 function App() {
@@ -13,47 +13,17 @@ function App() {
 
   const [usersState, updateUsers] = useState([])
   const [storiesState, updateStories] = useState([])
-  const boardState = { users: usersState, stories: storiesState }
-
-
-
-  const loadUsers = (response) => {
-    let users = response.data;
-    console.log("users, ", users)
-    return updateUsers(users)
-  }
-
-  const loadStories = (response) => {
-    let stories = response.data
-    console.log("stories", stories)
-    return updateStories(stories)
-  }
-
-
-  const loadStoriesIteration = (response) => {
-    console.log(response)
-    let stories = response.data[0].stories
-    console.log("stories in iteration", stories)
-    return updateStories(stories)
-  }
-
-  useEffect(() => {
-    getUsers("2203829", loadUsers)
-  }, []);
-
-
-  useEffect(() => {
-    // getStories("2203829", loadStories)
-    getStoriesInCurrentIteration("2203829", loadStoriesIteration)
-
-  }, [])
+  const boardState = { users: { usersState, updateUsers }, stories: { storiesState, updateStories } }
+  const [setupState, updateSetup] = useState({ token: "", projects: [] })
 
 
   return (
     <div className="App">
       <Header className="header" title="Carpe Diem - Pivotal"></Header>
-      <KanbanBoard boardState={boardState} className="kanban-board"></KanbanBoard>
-
+      <Router>
+        <Route path="/" exact render={(props) => <Setup state={setupState} update={updateSetup}></Setup>}></Route>
+        <Route path="/board/:id" render={(props) => <KanbanBoard boardState={boardState} className="kanban-board"></KanbanBoard>}></Route>
+      </Router>
     </div>
   );
 }
