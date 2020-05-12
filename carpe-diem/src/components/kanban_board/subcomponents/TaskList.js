@@ -8,7 +8,7 @@ const TaskList = (props) => (
             props.stories.map(story =>
                 story.tasks.map(task =>
 
-                    task.complete === props.active ? <Task className="story-task" taskStory={story.id} taskDetails={task.description}>
+                    task.complete === props.complete ? <Task className="story-task" taskStory={story.id} taskDetails={task.description}>
 
                     </Task> : null
                 )
