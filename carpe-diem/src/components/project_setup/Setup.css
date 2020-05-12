@@ -1,0 +1,57 @@
+.form-container {
+  display: block;
+  background-color: #a8dadc;
+  width: 584px;
+  height: 300px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.form-container label {
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  /* display: block; */
+}
+
+.form-container input {
+  background-color: #f1faee;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.form-container button {
+  background-color: #f1faee;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  margin: 10px;
+}
+
+.project-list ul {
+  list-style: none;
+  margin: auto;
+}
+
+.project-list li {
+  margin: 5px;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  background-color: #f1faee;
+  border-radius: 5px;
+  width: 70%;
+  text-align: left;
+  padding: 5px;
+}
