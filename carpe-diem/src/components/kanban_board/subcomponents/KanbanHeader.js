@@ -1,6 +1,5 @@
 import React from 'react';
 import ColumnHeader from './ColumnHeader'
-import KanbanBoard from '../KanbanBoard';
 
 
 const KanbanHeader = (props) => (<div class={props.className}>

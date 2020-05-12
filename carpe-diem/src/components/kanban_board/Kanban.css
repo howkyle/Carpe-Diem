@@ -2,12 +2,17 @@
   width: 90%;
   height: 800px;
   margin: auto;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .kanban-header {
   display: flex;
   margin: 16px;
+}
+
+.kanban-grid {
+  overflow: scroll;
+  height: 90%;
 }
 
 .kanban-header-title {
@@ -32,12 +37,38 @@
   min-height: 25%;
 }
 
+.avatar {
+  background-color: #06aed5;
+  border-radius: 5px;
+  color: #0a122a;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+.avatar span {
+  margin: auto;
+}
+
 .workset-storylist {
   width: 22%;
   float: left;
   background-color: #a8dadc;
   border-radius: 5px;
   margin: auto;
+  height: 300px;
+  /* overflow-y: scroll; */
+}
+
+/* .workset-storylist ::-webkit-scrollbar {
+  width: 5px;
+} */
+.storylist-stories {
+  overflow-y: scroll;
+  height: 250px;
 }
 
 .storylist-story {
@@ -52,6 +83,8 @@
   margin: 24px;
   border-radius: 5px;
   height: 48px;
+  overflow: hidden;
+  padding: 8px;
 }
 
 .story-task {
@@ -68,6 +101,8 @@
   border-radius: 5px;
   text-align: center;
   padding: 1%;
+  /* display: flexbox; */
+  overflow-y: hidden;
 }
 
 .story-task span {
@@ -76,14 +111,14 @@
 
 .workset-started {
   width: 22%;
-  min-height: 260px;
+  height: 300px;
   float: left;
   background-color: #a8dadc;
   border-radius: 5px;
 
   margin: auto;
   display: flex;
-  /* overflow: scroll; */
+  overflow-y: scroll;
   flex-wrap: wrap;
 }
 
@@ -93,13 +128,18 @@
 
 .workset-completed {
   width: 22%;
-  min-height: 260px;
+  height: 300px;
   float: left;
   background-color: #a8dadc;
   border-radius: 5px;
 
   margin: auto;
   display: flex;
-  /* overflow: scroll; */
+  overflow-y: scroll;
   flex-wrap: wrap;
+  text-decoration: line-through;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
 }

@@ -7,8 +7,10 @@ const TaskList = (props) => (
         {
             props.stories.map(story =>
                 story.tasks.map(task =>
-                    <Task className="story-task" taskStory={story.storyName} taskDetails={task.details}>
-                    </Task>
+
+                    task.complete === props.active ? <Task className="story-task" taskStory={story.id} taskDetails={task.description}>
+
+                    </Task> : null
                 )
             )
 
