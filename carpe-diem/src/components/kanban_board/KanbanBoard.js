@@ -5,35 +5,35 @@ import KanbanHeader from './subcomponents/KanbanHeader';
 import KanbanGrid from './subcomponents/KanbanGrid';
 import WorkSet from './subcomponents/WorkSet';
 import './Kanban.css';
-import { getUsers, getStoriesInCurrentIteration } from '../../api/pivotalService';
+import { getUsers, getCurrentIteration } from '../../api/pivotalService';
 
 
-const KanbanBoard = (props, { match }) => {
+const KanbanBoard = (props) => {
 
     const { id } = useParams();
 
-    const loadUsers = (response) => {
-        let users = response.data;
-        return props.boardState.users.updateUsers(users)
-    }
-
-
-    const loadStoriesIteration = (response) => {
-        console.log(response)
-        let stories = response.data[0].stories
-        return props.boardState.stories.updateStories(stories)
-    }
-
-
-
     useEffect(() => {
-        getUsers(id, loadUsers)
+
+        let fetchUsers = async () => {
+            let userList = await getUsers(id);
+            console.log("userlist", userList);
+            return props.boardState.users.updateUsers(userList)
+        }
+
+        fetchUsers();
+
+
     }, []);
 
 
     useEffect(() => {
-        getStoriesInCurrentIteration(id, loadStoriesIteration)
 
+        let fetchStories = async () => {
+            let iteration = await getCurrentIteration(id);
+            let stories = iteration[0].stories;
+            props.boardState.stories.updateStories(stories)
+        }
+        fetchStories();
     }, [])
 
 
@@ -46,10 +46,8 @@ const KanbanBoard = (props, { match }) => {
         </KanbanGrid>
 
     </div>)
+
+
 }
-
-
-
-
 
 export default KanbanBoard;
