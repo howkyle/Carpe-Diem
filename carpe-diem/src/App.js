@@ -5,8 +5,6 @@ import './App.css';
 import Header from './components/header/Header';
 import KanbanBoard from './components/kanban_board/KanbanBoard';
 import Setup from './components/project_setup/Setup';
-// import { getUsers, getStories, getStoriesInCurrentIteration } from './api/pivotalService';
-
 
 function App() {
 
@@ -21,8 +19,10 @@ function App() {
     <div className="App">
       <Header className="header" title="Carpe Diem - Pivotal"></Header>
       <Router>
-        <Route path="/" exact render={(props) => <Setup state={setupState} update={updateSetup}></Setup>}></Route>
-        <Route path="/board/:id" render={(props) => <KanbanBoard boardState={boardState} className="kanban-board"></KanbanBoard>}></Route>
+        <Switch>
+          <Route path="/" exact render={(props) => <Setup state={setupState} update={updateSetup}></Setup>}></Route>
+          <Route path="/board/:id" render={(props) => <KanbanBoard boardState={boardState} className="kanban-board"></KanbanBoard>}></Route>
+        </Switch>
       </Router>
     </div>
   );
