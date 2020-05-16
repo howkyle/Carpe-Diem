@@ -6,7 +6,7 @@ import Avatar from './Avatar';
 
 const WorkSet = (props) => {
 
-    let stories = props.stories.filter(story => story.current_state != "planned" && story.owned_by.id == props.user.id)
+    let stories = props.stories.filter(story => story.current_state != "planned" && story.current_state != "accepted" && story.owned_by.id == props.user.id)
     console.log("workset", stories)
 
     // let stories = props.stories.filter(story => story.owned_by.id == props.user.id)

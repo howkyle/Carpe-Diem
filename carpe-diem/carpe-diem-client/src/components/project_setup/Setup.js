@@ -17,8 +17,6 @@ const Setup = (props) => {
         getProjects(loadProjects);
     }
 
-    console.log(props)
-
     return (
         <div class="form-container">
             <form onSubmit={handleSubmit}>
