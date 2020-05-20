@@ -9,7 +9,6 @@ export const loadProjects = async () => {
 export const loadStories = async (projectid) => {
     let iteration = await getCurrentIteration(projectid);
     let stories = iteration[0].stories
-    console.log("These are stoies", stories)
     return stories;
 }
 
