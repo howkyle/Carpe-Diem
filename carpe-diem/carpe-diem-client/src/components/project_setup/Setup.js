@@ -1,20 +1,16 @@
 import React from 'react';
 import './Setup.css';
-import { getProjects, setToken } from '../../api/pivotalService';
+import { submitToken } from '../../api/pivotalService';
 import { Link } from 'react-router-dom';
 
 
 
 const Setup = (props) => {
 
-    const loadProjects = (response) => {
-        props.update({ token: props.state.token, projects: response.data });
-    }
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        setToken(props.state.token)
-        getProjects(loadProjects);
+        props.update({ token: props.state.token, projects: await submitToken(props.state.token) });
+
     }
 
     return (
