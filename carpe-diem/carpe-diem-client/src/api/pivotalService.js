@@ -5,8 +5,7 @@ import { handleResponse, handleError } from './utilities/responseHandling';
 axios.defaults.headers.common['X-TrackerToken'] = '079ff785cf0eb404ec8b14203b99a7e7';
 
 export const getUsers = (projectid) => {
-    let url = `https://www.pivotaltracker.com/services/v5/projects/${projectid}/memberships?fields=person,role`;
-
+    let url = `http://localhost:4001/api/${projectid}/users`
     return axios.get(url)
         .then(handleResponse)
         .catch(handleError)
@@ -14,7 +13,7 @@ export const getUsers = (projectid) => {
 }
 
 export const getStories = (projectid) => {
-    let url = `https://www.pivotaltracker.com/services/v5/projects/${projectid}/stories?fields=tasks,owned_by,name,current_state`
+    let url = `http://localhost:4001/api/${projectid}/stories`
 
     return axios.get(url)
         .then(handleResponse)
@@ -22,8 +21,8 @@ export const getStories = (projectid) => {
 
 }
 
-export const getCurrentIteration = (projectid) => {
-    let url = `https://www.pivotaltracker.com/services/v5/projects/${projectid}/iterations?fields=stories(tasks,owned_by(id),name,current_state)&scope=current`
+export const getProjects = () => {
+    let url = 'http://localhost:4001/api/projects'
 
     return axios.get(url)
         .then(handleResponse)
@@ -31,20 +30,16 @@ export const getCurrentIteration = (projectid) => {
 
 }
 
+export const submitToken = (token) => {
 
-export const getProjects = (callback) => {
-    let url = `https://www.pivotaltracker.com/services/v5/projects`
-
-    axios.get(url)
-        .then(response => callback(response))
-        .catch(response => callback(response))
+    //takes token returns a list of projects
+    let url = 'http://localhost:4001/api/token'
+    return axios.post(url, { "token": token })
+        .then(handleResponse)
+        .catch(handleError)
 
 }
 
-export const setToken = (token) => {
-    axios.defaults.headers.common['X-TrackerToken'] = token;
-    sessionStorage.setItem("token", token)
-}
 
 
 
