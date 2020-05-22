@@ -1,3 +1,47 @@
+.modal {
+  z-index: 1;
+  background-color: #f1faeeb8;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details {
+  height: 50%;
+  width: 50%;
+  background-color: #a8dadc;
+  border-radius: 5px;
+}
+
+.title {
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  width: 70%;
+  display: inline-block;
+}
+
+.text-content-box {
+  background-color: #f1faee;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0a122a;
+  width: 80%;
+  margin: auto;
+  height: 70%;
+  overflow: scroll;
+  border-radius: 5px;
+}
+
 .kanban-board {
   width: 90%;
   height: 800px;
