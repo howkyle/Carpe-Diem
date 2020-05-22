@@ -22,7 +22,7 @@ export const getStories = (projectid) => {
 }
 
 export const getCurrentIteration = (projectid) => {
-    let url = `https://www.pivotaltracker.com/services/v5/projects/${projectid}/iterations?fields=stories(tasks,owned_by(id),name,current_state)&scope=current`
+    let url = `https://www.pivotaltracker.com/services/v5/projects/${projectid}/iterations?fields=stories(tasks,owned_by(id),name,current_state,description)&scope=current`
 
     return axios.get(url)
         .then(handleResponse)
