@@ -1,21 +1,39 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import Task from './Task';
 
-const TaskList = (props) => (
-    <div class={props.className}>
+const TaskList = (props) => {
 
-        {
-            props.stories.map(story =>
-                story.tasks.map(task =>
+    const Container = styled.div`
+            width: 22%;
+            height: 300px;
+            float: left;
+            background-color: #a8dadc;
+            border-radius: 5px;
+            margin: auto;
+            display: flex;
+            overflow-y: scroll;
+            flex-wrap: wrap;
+            // padding:10px;
+        `
 
-                    task.complete === props.complete ? <Task className="story-task" taskStory={story.id} taskDetails={task.description}>
 
-                    </Task> : null
+    return (
+        <Container>
+
+            {
+                props.stories.map(story =>
+                    story.tasks.map(task =>
+
+                        task.complete === props.complete ? <Task taskStory={story.id} task={task}>
+
+                        </Task> : null
+                    )
                 )
-            )
 
-        }
+            }
 
-    </div>);
+        </Container>)
+};
 
 export default TaskList;

@@ -18,8 +18,8 @@ const WorkSet = (props) => {
     // let stories = props.stories.filter(story => story.owned_by.id == props.user.id)
     return (<WorkSetContainer>
         <StoryList stories={stories.filter(story => story.current_state != "finished")} className="workset-storylist"> <Avatar className="avatar">{props.user.initials}</Avatar></StoryList>
-        <TaskList stories={stories} complete={false} className="workset-started"></TaskList>
-        <TaskList stories={stories} complete={true} className="workset-completed"></TaskList>
+        <TaskList stories={stories} complete={false}></TaskList>
+        <TaskList stories={stories} complete={true} ></TaskList>
         <StoryList stories={stories.filter(story => story.current_state == "finished")} className="workset-storylist"></StoryList>
     </WorkSetContainer>)
 };

@@ -11,11 +11,11 @@ import { getUsers, getStories } from '../../api/pivotalService';
 
 const KanbanBoard = (props) => {
 
-    const BoardContainer = styled.div({
-        width: '90%',
-        height: '800px',
-        margin: 'auto',
-    })
+    const BoardContainer = styled.div`
+        width: 90%;
+        height: 850px;
+        margin: auto;
+        `
 
     const { id } = useParams();
 
