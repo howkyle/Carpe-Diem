@@ -1,14 +1,30 @@
 import React from 'react';
-import ColumnHeader from './ColumnHeader'
+import styled from '@emotion/styled';
 
+const KanbanHeader = (props) => {
+    const ColumnHeader = styled.span({
+        display: 'inline-block',
+        /* width: 285px, */
+        width: '22%',
+        margin: 'auto',
+        height: '63px',
+        backgroundColor: ' #06aed5',
+        color: '#f1faee',
+        fontSize: '36px',
+        fontFamily: "Segoe UI",
+        fontStyle: 'italic',
+        fontWeight: "bold",
+        borderRadius: '5px',
+        overflow: 'hidden',
+    })
+    return (<div class={props.className}>
+        <ColumnHeader>Stories</ColumnHeader>
+        <ColumnHeader>Current Tasks</ColumnHeader>
+        <ColumnHeader>Completed Tasks</ColumnHeader>
+        <ColumnHeader>Testing</ColumnHeader>
 
-const KanbanHeader = (props) => (<div class={props.className}>
-    <ColumnHeader className="kanban-header-title" title="Stories"></ColumnHeader>
-    <ColumnHeader className="kanban-header-title" title="Current Tasks"></ColumnHeader>
-    <ColumnHeader className="kanban-header-title" title="Completed Tasks"></ColumnHeader>
-    <ColumnHeader className="kanban-header-title" title="Testing"></ColumnHeader>
+    </div>)
 
-</div>)
-
+}
 
 export default KanbanHeader;
