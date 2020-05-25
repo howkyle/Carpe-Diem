@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const KanbanHeader = (props) => {
+
     const ColumnHeader = styled.span({
         display: 'inline-block',
         /* width: 285px, */
@@ -17,13 +18,17 @@ const KanbanHeader = (props) => {
         borderRadius: '5px',
         overflow: 'hidden',
     })
-    return (<div class={props.className}>
-        <ColumnHeader>Stories</ColumnHeader>
-        <ColumnHeader>Current Tasks</ColumnHeader>
-        <ColumnHeader>Completed Tasks</ColumnHeader>
-        <ColumnHeader>Testing</ColumnHeader>
 
-    </div>)
+    const HeaderContainer = styled.div({
+        display: 'flex',
+        margin: '16px'
+    })
+    return (
+        <HeaderContainer><ColumnHeader>Stories</ColumnHeader>
+            <ColumnHeader>Current Tasks</ColumnHeader>
+            <ColumnHeader>Completed Tasks</ColumnHeader>
+            <ColumnHeader>Testing</ColumnHeader>
+        </HeaderContainer>)
 
 }
 

@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React from 'react';
+import styled from '@emotion/styled';
 import StoryList from './StoryList';
 import TaskList from './TaskList';
 import Avatar from './Avatar';
@@ -6,16 +7,21 @@ import Avatar from './Avatar';
 
 const WorkSet = (props) => {
 
+    const WorkSetContainer = styled.div({
+        display: 'flex',
+        margin: '10px',
+        minHeight: '25%'
+    })
+
     let stories = props.stories.filter(story => story.current_state != "planned" && story.current_state != "accepted" && story.owned_by.id == props.user.id)
-    console.log("workset", stories)
 
     // let stories = props.stories.filter(story => story.owned_by.id == props.user.id)
-    return (<div className={props.className}>
+    return (<WorkSetContainer>
         <StoryList stories={stories.filter(story => story.current_state != "finished")} className="workset-storylist"> <Avatar className="avatar">{props.user.initials}</Avatar></StoryList>
         <TaskList stories={stories} complete={false} className="workset-started"></TaskList>
         <TaskList stories={stories} complete={true} className="workset-completed"></TaskList>
         <StoryList stories={stories.filter(story => story.current_state == "finished")} className="workset-storylist"></StoryList>
-    </div>)
+    </WorkSetContainer>)
 };
 
 export default WorkSet;
