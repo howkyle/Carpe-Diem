@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 
 const Header = (props) => {
     const Container = styled.div`
-    height:100px;
+    height:15%;
 `
     const HeaderTitle = styled.span`
 font-family: "Segoe Script";

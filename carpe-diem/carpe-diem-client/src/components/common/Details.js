@@ -22,18 +22,19 @@ const Details = (props) => {
         margin: '24px'
     })
 
-    const DetailsContent = styled.div({
-        backgroundColor: '#f1faee',
-        fontSize: '20px',
-        fontStyle: 'italic',
-        fontWeight: 'bold',
-        color: '#0a122a',
-        width: '80%',
-        margin: 'auto',
-        height: '60%',
-        overflow: 'scroll',
-        borderRadius: '5px'
-    })
+    const DetailsContent = styled.div`
+        background-color: #f1faee;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: bold;
+        color: #0a122a;
+        width: 80%;
+        margin: auto;
+        height: 60%;
+        overflow: scroll;
+        border-radius: 5px;
+        padding:16px;
+    `
 
     return (
         <DetailsContainer>

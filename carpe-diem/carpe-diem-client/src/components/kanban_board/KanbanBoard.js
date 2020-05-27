@@ -13,7 +13,7 @@ const KanbanBoard = (props) => {
 
     const BoardContainer = styled.div`
         width: 90%;
-        height: 850px;
+        height: 80%;
         margin: auto;
         `
 

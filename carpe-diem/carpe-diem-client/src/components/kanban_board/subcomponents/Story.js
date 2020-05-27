@@ -28,8 +28,8 @@ const Story = (props) => {
 
     return (
         <Container onClick={showDetails}>
-            <span class={props.className}>{props.story.name}</span>
-            <Modal visible={state.showModal} className="modal" ><Details title={props.story.name}>{props.story.description}</Details></Modal>
+            <span>{props.story.name}</span>
+            <Modal visible={state.showModal}><Details title={props.story.name}>{props.story.description}</Details></Modal>
         </Container>)
 }
 
