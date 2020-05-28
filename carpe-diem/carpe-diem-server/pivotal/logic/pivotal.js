@@ -1,22 +1,17 @@
 import { getProjects, getCurrentIteration, getUsers, updateToken } from '../api/service'
 
 
-export const loadProjects = async () => {
-    let projects = await getProjects();
-    return projects;
+export const loadProjects = async (token) => {
+    return await getProjects(token);
 }
 
-export const loadStories = async (projectid) => {
-    let iteration = await getCurrentIteration(projectid);
+export const loadStories = async (token, projectid) => {
+    let iteration = await getCurrentIteration(token, projectid);
     let stories = iteration[0].stories
     return stories;
 }
 
-export const loadMembers = async (projectid) => {
-    let users = await getUsers(projectid)
+export const loadMembers = async (token, projectid) => {
+    let users = await getUsers(token, projectid)
     return users.filter(user => user.role == "member");
-}
-
-export const setToken = (token) => {
-    updateToken(token);
 }
