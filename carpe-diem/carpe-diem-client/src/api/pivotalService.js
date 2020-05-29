@@ -2,7 +2,6 @@ import axios from 'axios';
 import { handleResponse, handleError } from './utilities/responseHandling';
 
 
-axios.defaults.headers.common['X-TrackerToken'] = '079ff785cf0eb404ec8b14203b99a7e7';
 
 export const getUsers = (projectid) => {
     let url = `http://localhost:4001/api/${projectid}/users`
