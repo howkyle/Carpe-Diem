@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 var cors = require('cors');
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(DecodeToken())
 
 app.get('/api/:projectid/users', async (req, res) => {
